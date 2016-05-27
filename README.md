@@ -9,10 +9,10 @@ If it's good, it will return the final process of the file.
 If not, it should return the error message set for that step.
 
 ### Usage
-1) Init our object:
+1) Init our object and pass in your data that you're process:
 
 ```
-var someProcess = new processAndTest();
+var someProcess = new processAndTest(data);
 ```
 
 2) Add in each step along with the tests we want to attach to that step. See the options in the constructor:

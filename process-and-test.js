@@ -1,4 +1,4 @@
-var processAndTest = function() {
+var processAndTest = function(initialData) {
 	var self = this;
 	this.processSets = [];
 	this.data = undefined;
@@ -18,8 +18,7 @@ var processAndTest = function() {
 		})
 	};
 	this.run = function() {
-		var counter = 0;
-		var length = self.processSets.length;
+		self.data = initialData;
 
 		loopProcesses:
 			for (var p = 0; p < self.processSets.length; p++) {
