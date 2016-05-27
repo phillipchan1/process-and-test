@@ -41,7 +41,6 @@ var processAndTest = function(initialData) {
 				var pass = set.tests[i](self.data);
 
 				if (pass === false) {
-					alert("i should stop shouldn't i")
 					self.errorMessage = set.errorMessage;
 					return false;
 				}
