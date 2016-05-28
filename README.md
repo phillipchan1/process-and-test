@@ -9,7 +9,7 @@ If it's good, it will return the final process of the file.
 If not, it should return the error message set for that step.
 
 ### Usage
-1) Init our object and pass in your data that you're process:
+1) Init our object and pass in your data that you're processing:
 
 ```
 var someProcess = new processAndTest(data);
