@@ -13,11 +13,37 @@ var processAndTest = function(initialData) {
 		self.processSets.push({
 			action: options.action,
 			tests: options.tests,
+			mode: options.mode,
 			errorMessage: options.errorMessage
 		})
 	};
-	this.run = function() {
+	this.run = function(initialData) {
+		var counter = 0;
+		var numOfProcess = self.processSets.length;
+		var currentSet = self.processSets[counter];
 		self.data = initialData;
+
+		(function runNextAction() {
+			// if async
+			if (currentSet.mode == "async") {
+				currentSet.action(self.data)
+					.then(function(res) {
+						self.data = res;
+						runNextAction();
+					})
+			} 
+			// if sync
+			else {
+				self.data = currentSet.action();
+				runNextAction();
+			}
+
+			// should we run the next one?
+			if (counter < numOfProcess) {
+				counter++
+				processSets[counter].action();
+			}
+		})();
 
 		loopProcesses:
 			for (var p = 0; p < self.processSets.length; p++) {
