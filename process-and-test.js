@@ -21,43 +21,60 @@ var processAndTest = function(initialData) {
 		var counter = 0;
 		var numOfProcess = self.processSets.length;
 		var currentSet = self.processSets[counter];
+		var resultOfRun = self.generateResult(true, self.data)
 		self.data = initialData;
 
-		(function runNextAction() {
+		var runNextAction = function(set) {
 			// if async
 			if (currentSet.mode == "async") {
 				currentSet.action(self.data)
 					.then(function(res) {
 						self.data = res;
-						runNextAction();
+						runTests(currentSet);
 					})
 			} 
 			// if sync
 			else {
 				self.data = currentSet.action();
-				runNextAction();
+				runTests(currentSet);
 			}
+		};
 
+		var runTests = function(data) {
+			// if it fails test
+			if (self.runTests(set) === false) {
+				resultOfRun = self.generateResult(false, errorMessage);
+			}
+			// if current set passes test
+			else {
+				runItAgain();
+			}
+		}
+
+		var runItAgain = function() {
 			// should we run the next one?
 			if (counter < numOfProcess) {
 				counter++
-				processSets[counter].action();
+				runNextAction(currentSet);
 			}
-		})();
+		}
 
-		loopProcesses:
-			for (var p = 0; p < self.processSets.length; p++) {
-				var currentSet = self.processSets[p];
+		// run it for the first time.
+		runNextAction(currentSet);
+
+		// loopProcesses:
+		// 	for (var p = 0; p < self.processSets.length; p++) {
+		// 		var currentSet = self.processSets[p];
 			
-				self.data = currentSet.action();
-				if (self.runTests(currentSet) === false) {
-					resultOfRun = self.generateResult(false, self.errorMessage);
-					break loopProcesses;
-				}
-				else {
-					resultOfRun = self.generateResult(true, self.data);
-				}
-			}
+		// 		self.data = currentSet.action();
+		// 		if (self.runTests(currentSet) === false) {
+		// 			resultOfRun = self.generateResult(false, self.errorMessage);
+		// 			break loopProcesses;
+		// 		}
+		// 		else {
+		// 			resultOfRun = self.generateResult(true, self.data);
+		// 		}
+		// 	}
 		
 		return resultOfRun;
 	};
