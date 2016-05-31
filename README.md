@@ -23,6 +23,9 @@ someProcess.newProcess({
         // whatever we want to do with our data-as long as we return it.
         return data;
     },
+    // 'async' or 'sync'
+    mode: 'sync',
+    // tests that we're passing in
     tests: [
         test1,
         test2
@@ -31,17 +34,28 @@ someProcess.newProcess({
 });
 ```
 
+Example test to pass in:
+```
+// tests must return true or false
+var checkCSVFormatting = function(csv) {
+    return true;
+}
+```
+
+3) Specify what happens with data after it is done testing and processing:
+```
+processer.onEnd = function() {
+    // the pass property will return either true or false
+    console.log(processer.pass);
+    // the data will either give you the processed file or the error message
+    console.log(processer.data);
+}
+```
+
 3) Run the test with the `run()` method.
 
 ```
 someProcess.run();
 ```
 
-**Results**
-What returns is an object with 1) the result of the tests 2) data OR error message
-
-```
-var results = someProcess.run();
-results.pass // returns true or false
-results.data // returns either the finished product OR the error message.
-```
+And you're set.
