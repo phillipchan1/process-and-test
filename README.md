@@ -3,7 +3,7 @@ A JS function that allows for a streamlined process that allows for multiple tes
 
 ![alt tag](https://github.com/phillipchan2/process-and-test/blob/master/process-and-test.png?raw=true)
 
-Often, we need to simulataneously process and a file and test it along the way to ensure the integrity of the file. This module should help that.
+Often, we need to simultaneously process and a file and test it along the way to ensure the integrity of the file. This module should help that.
 
 If it's good, it will return the final process of the file.
 If not, it should return the error message set for that step.
@@ -25,7 +25,7 @@ someProcess.newProcess({
         
     },
 
-    // 'async' or 'sync'
+    // Whether the process is 'async' or 'sync'
     mode: 'sync',
 
     // tests that we're passing in
@@ -37,14 +37,6 @@ someProcess.newProcess({
     // specify an error message to go with these sets of tests
     errorMessage: "The error message given if this fails the test."
 });
-```
-
-Example test to pass in:
-```
-// tests must return true or false
-var test1 = function(csv) {
-    return true;
-}
 ```
 
 3) Specify what happens with data after it is done testing and processing:
@@ -65,3 +57,36 @@ someProcess.run();
 ```
 
 And you're set.
+
+#### Writing Your Tests
+
+Example test to pass in:
+```
+// tests must return true or return an error message (a string)
+var test1 = function(csv) {
+    if (true) {
+        return true;    
+    }
+    else {
+        return "Random error message";
+    }
+}
+```
+
+#### Asyncronous Processing
+
+The module allows for asyncronous processes through the use of JS promises. In your process, just return the resolved promise object.
+
+Example:
+```
+var readFile = function(file) {
+    return new Promise(function(resolve, reject) {
+        var reader = new FileReader();
+        var content = reader.readAsText(file);
+
+        reader.onload = function() {
+            resolve(reader.result);
+        }
+    }); 
+};
+```

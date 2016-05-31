@@ -69,7 +69,7 @@ var processAndTest = function(initialData) {
 			this.onEnd = function() {},
 			this.runTests = function(set) {
 				for (var i = 0; i < set.tests.length ; i++) {
-					var testResult = set.tests[i][0](self.data);
+					var testResult = set.tests[i](self.data);
 
 					if (testResult !== true) {
 						self.errorMessage = testResult;
