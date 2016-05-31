@@ -19,17 +19,22 @@ var someProcess = new processAndTest(data);
 
 ```
 someProcess.newProcess({
-    action: function() {
-        // whatever we want to do with our data-as long as we return it.
+    // whatever we want to do with our data-as long as we return it.
         return data;
+    action: function() {
+        
     },
+
     // 'async' or 'sync'
     mode: 'sync',
+
     // tests that we're passing in
     tests: [
         test1,
         test2
     ],
+
+    // specify an error message to go with these sets of tests
     errorMessage: "The error message given if this fails the test."
 });
 ```
@@ -37,7 +42,7 @@ someProcess.newProcess({
 Example test to pass in:
 ```
 // tests must return true or false
-var checkCSVFormatting = function(csv) {
+var test1 = function(csv) {
     return true;
 }
 ```
@@ -47,12 +52,13 @@ var checkCSVFormatting = function(csv) {
 processer.onEnd = function() {
     // the pass property will return either true or false
     console.log(processer.pass);
+
     // the data will either give you the processed file or the error message
     console.log(processer.data);
 }
 ```
 
-3) Run the test with the `run()` method.
+4) Run the test with the `run()` method.
 
 ```
 someProcess.run();
