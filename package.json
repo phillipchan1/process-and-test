@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "gulp-concat": "^2.6.0",
+    "gulp-file-include": "^0.13.7",
     "gulp-markdown": "^1.2.0",
     "gulp-ruby-sass": "^2.0.6"
   },

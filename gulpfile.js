@@ -4,6 +4,7 @@ var concat = require('gulp-concat');
 var sass = require('gulp-ruby-sass');
 var minify = require('gulp-minify');
 var markdown = require('gulp-markdown');
+var fileinclude = require('gulp-file-include');
 
 // Compile SASS
 gulp.task('sass', function() {
@@ -12,6 +13,7 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('css'))
 });
 
+// Compile and minify js
 gulp.task('scripts', function() {
     return gulp.src([
             'src/js/*'
@@ -26,6 +28,7 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('js'));
 });
 
+// Turn markdown files into HTML
 gulp.task('markdown', function () {
     return gulp.src('src/pages/*.md')
         .pipe(markdown())
