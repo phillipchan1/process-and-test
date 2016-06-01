@@ -1,0 +1,17 @@
+{
+  "name": "process-and-test",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Phillip_Chan <phillip.chan@liferay.COM>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/phillipchan2/process-and-test",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
