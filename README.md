@@ -1,6 +1,15 @@
 # process-and-test.js
 A JS function that allows for a streamlined process that allows for multiple tests to be passed along its process.
 
+## Table of Contents
+1. [General](#general)
+2. [Usage](#usage)
+    - [Getting Started](#getting-started)
+    - [Writing Your Tests](#writing-your-tests)
+    - [Async Processes](#async-processes)
+3. [Developing](#developing)
+
+## General
 ![alt tag](assets/process-and-test.png?raw=true)
 
 Often, we need to simultaneously process and a file and test it along the way to ensure the integrity of the file. This module should help that.
@@ -8,7 +17,9 @@ Often, we need to simultaneously process and a file and test it along the way to
 If it's good, it will return the final process of the file.
 If not, it should return the error message set for that step.
 
-### Usage
+## Usage
+
+#### Getting Started
 1) Init our object and pass in your data that you're processing:
 
 ```
@@ -73,7 +84,7 @@ var test1 = function(csv) {
 }
 ```
 
-#### Asyncronous Processing
+#### Async Processes
 
 The module allows for asyncronous processes through the use of JS promises. In your process, just return the resolved promise object.
 
@@ -90,3 +101,11 @@ var readFile = function(file) {
     }); 
 };
 ```
+
+## Developing
+This project leverages gulp and mocha.
+
+1. Download dependencies: `npm init`
+2. Run compiler `gulp`
+
+*It's now watching for changes, compiling and minifying, and running tests*
