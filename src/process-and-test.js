@@ -8,7 +8,7 @@ function init(initialData) {
 	this.newProcess = function(options) {
 		self.processSets.push({
 			action: options.action || function(data) {return data},
-			tests: options.tests || [],
+			tests: options.tests || [function() {return true}],
 			mode: options.mode || 'sync',
 			errorMessage: options.errorMessage || ''
 		});
