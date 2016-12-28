@@ -52,12 +52,12 @@ someProcess.newProcess({
 
 3) Specify what happens with data after it is done testing and processing:
 ```
-processer.onEnd = function() {
+someProcess.onEnd = function() {
     // the pass property will return either true or false
-    console.log(processer.pass);
+    console.log(someProcess.pass);
 
     // the data will either give you the processed file or the error message
-    console.log(processer.data);
+    console.log(someProcess.data);
 }
 ```
 
