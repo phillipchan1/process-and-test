@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var minify = require('gulp-minify');
 var runSequence = require('run-sequence');
+var mocha = require('gulp-mocha');
 
 gulp.task('compress', function() {
 	gulp.src('src/process-and-test.js')
@@ -29,6 +30,12 @@ gulp.task(
 			);
 	}
 );
+
+gulp.task(
+	'test',
+	function() {
+
+})
 
 // define tasks here
 gulp.task('default',
