@@ -1,7 +1,7 @@
 # process-and-test.js
 A JS function that allows for a streamlined process that allows for multiple tests to be passed along its process.
 
-![alt tag](https://github.com/phillipchan2/process-and-test/blob/master/process-and-test.png?raw=true)
+![alt tag](assets/process-and-test.png?raw=true)
 
 Often, we need to simultaneously process and a file and test it along the way to ensure the integrity of the file. This module should help that.
 
