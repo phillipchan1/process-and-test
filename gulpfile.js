@@ -18,37 +18,37 @@ gulp.task('compress', function() {
 	}
 );
 
+// run tests
+gulp.task('test', () =>
+    gulp.src('test/*.js', {read: false})
+        // gulp-mocha needs filepaths so you can't have any plugins before it
+        .pipe(mocha({reporter: 'nyan'}))
+);
+
 // watch
 gulp.task(
 	'watch',
 	function() {
 
-		// Watch .js files
+		// Watch source .js files
 		gulp.watch(
 			'src/**/*.js',
 			function() {
 				runSequence('compress', 'test')
 			}
-			);
+		);
+
+		// Watch test .js files
+		gulp.watch(
+			'test/**/*.js',
+			function() {
+				runSequence('compress', 'test')
+			}
+		)
 	}
 );
 
-// run tests
-gulp.task(
-	'test',
-	function() {
-		gulp.src('src/**/*.js')
-			.pipe(
-				mocha(
-					{
-						reporter: 'nyan'
-					}
-				)
-			)
-	}
-);
-
-// define tasks here
+// default gulp task
 gulp.task('default',
 	function() {
 		runSequence('compress', 'test', 'watch')
