@@ -3,7 +3,7 @@ var minify = require('gulp-minify');
 var runSequence = require('run-sequence');
 
 gulp.task('compress', function() {
-  gulp.src('process-and-test.js')
+  gulp.src('src/process-and-test.js')
     .pipe(minify({
         ext:{
             min:'.min.js'
@@ -30,7 +30,7 @@ gulp.task(
 );
 
 // define tasks here
-gulp.task('default', 
+gulp.task('default',
 	function() {
 		runSequence('compress', 'watch')
 	}
