@@ -21,7 +21,7 @@ gulp.task(
 
 		// Watch .js files
 		gulp.watch(
-			'*.js',
+			'src/**/*.js',
 			function() {
 				runSequence('compress')
 			}
