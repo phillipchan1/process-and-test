@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var minify = require('gulp-minify');
-var runSequence = require('run-sequence');
 var mocha = require('gulp-mocha');
 
 // minify Js files
@@ -33,24 +32,18 @@ gulp.task(
 		// Watch source .js files
 		gulp.watch(
 			'src/**/*.js',
-			function() {
-				runSequence('compress', 'test')
-			}
+			['compress', 'test']
 		);
 
 		// Watch test .js files
 		gulp.watch(
 			'test/**/*.js',
-			function() {
-				runSequence('compress', 'test')
-			}
+			['compress', 'test']
 		)
 	}
 );
 
 // default gulp task
 gulp.task('default',
-	function() {
-		runSequence('compress', 'test', 'watch')
-	}
+	['compress', 'test', 'watch']
 );
