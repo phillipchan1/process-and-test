@@ -7,10 +7,10 @@ function init(initialData) {
 
 	this.newProcess = function(options) {
 		self.processSets.push({
-			action: options.action,
-			tests: options.tests,
-			mode: options.mode,
-			errorMessage: options.errorMessage
+			action: options.action || undefined,
+			tests: options.tests || [],
+			mode: options.mode || 'sync',
+			errorMessage: options.errorMessage || ''
 		});
 	};
 
