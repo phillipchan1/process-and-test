@@ -7,7 +7,7 @@ function init(initialData) {
 
 	this.newProcess = function(options) {
 		self.processSets.push({
-			action: options.action || undefined,
+			action: options.action || function(data) {return data},
 			tests: options.tests || [],
 			mode: options.mode || 'sync',
 			errorMessage: options.errorMessage || ''
@@ -54,7 +54,7 @@ function init(initialData) {
 		var runItAgain = function() {
 			// should we run the next one?
 			if ((counter + 1) < numOfProcess) {
-				counter++
+				counter++;
 				currentSet = self.processSets[counter];
 				runNextAction(currentSet);
 			}
