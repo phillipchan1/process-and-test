@@ -1,4 +1,4 @@
-var processAndTest = function(initialData) {
+function init(initialData) {
 	var self = this;
 	this.processSets = [];
 	this.data = initialData;
@@ -88,3 +88,6 @@ var processAndTest = function(initialData) {
 		}
 	};
 };
+
+module.exports = init;
+
