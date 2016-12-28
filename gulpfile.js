@@ -3,6 +3,7 @@ var minify = require('gulp-minify');
 var runSequence = require('run-sequence');
 var mocha = require('gulp-mocha');
 
+// minify Js files
 gulp.task('compress', function() {
 	gulp.src('src/process-and-test.js')
 		.pipe(minify({
@@ -17,6 +18,7 @@ gulp.task('compress', function() {
 	}
 );
 
+// watch
 gulp.task(
 	'watch',
 	function() {
@@ -25,21 +27,30 @@ gulp.task(
 		gulp.watch(
 			'src/**/*.js',
 			function() {
-				runSequence('compress')
+				runSequence('compress', 'test')
 			}
 			);
 	}
 );
 
+// run tests
 gulp.task(
 	'test',
 	function() {
-
-})
+		gulp.src('src/**/*.js')
+			.pipe(
+				mocha(
+					{
+						reporter: 'nyan'
+					}
+				)
+			)
+	}
+);
 
 // define tasks here
 gulp.task('default',
 	function() {
-		runSequence('compress', 'watch')
+		runSequence('compress', 'test', 'watch')
 	}
 );
