@@ -10,7 +10,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "mocha --recursive",
+    "dev": "gulp"
   },
   "repository": {
     "type": "git",
