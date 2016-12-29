@@ -1,5 +1,5 @@
 var should = require('chai').should();
-var processAndTest = require('../src/process-and-test.js');
+var processAndTest = require('../src/index.js');
 
 var sampleProcess = new processAndTest('this is a string data im sending');
 

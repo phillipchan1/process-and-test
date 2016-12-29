@@ -3,17 +3,17 @@ var minify = require('gulp-minify');
 var mocha = require('gulp-mocha');
 
 // minify Js files
-gulp.task('compress', function() {
-	gulp.src('src/process-and-test.js')
+gulp.task('compile', function() {
+	gulp.src('src/index.js')
 		.pipe(minify({
 			ext:{
-				min:'.min.js'
+				min:'.js'
 				},
 				exclude: ['tasks'],
 				ignoreFiles: ['.combo.js', '-min.js'],
 				noSource: true
 				}))
-		.pipe(gulp.dest('dist'))
+		.pipe(gulp.dest('./'))
 	}
 );
 
@@ -32,18 +32,18 @@ gulp.task(
 		// Watch source .js files
 		gulp.watch(
 			'src/**/*.js',
-			['compress', 'test']
+			['compile', 'test']
 		);
 
 		// Watch test .js files
 		gulp.watch(
 			'test/**/*.js',
-			['compress', 'test']
+			['compile', 'test']
 		)
 	}
 );
 
 // default gulp task
 gulp.task('default',
-	['compress', 'test', 'watch']
+	['compile', 'test', 'watch']
 );
