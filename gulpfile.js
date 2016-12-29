@@ -21,7 +21,7 @@ gulp.task('compress', function() {
 gulp.task('test', () =>
     gulp.src('test/*.js', {read: false})
         // gulp-mocha needs filepaths so you can't have any plugins before it
-        .pipe(mocha({reporter: 'nyan'}))
+        .pipe(mocha({reporter: 'spec'}))
 );
 
 // watch

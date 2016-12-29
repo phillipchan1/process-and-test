@@ -61,7 +61,7 @@ function init(initialData) {
 
 			else {
 				self.pass = true;
-				self.onEnd();
+				self.onEnd(self.pass, self.data);
 			}
 		};
 
@@ -90,4 +90,3 @@ function init(initialData) {
 };
 
 module.exports = init;
-
