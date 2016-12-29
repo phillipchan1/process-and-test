@@ -103,7 +103,7 @@ var readFile = function(file) {
 ```
 
 ## Developing
-This project leverages gulp and mocha. Source files are located in `/src` and tests are located in `test`.
+This project leverages gulp and mocha. Source files are located in `/src` and tests are located in `/test`.
 
 1. Download dependencies: `npm init`
 2. Run compiler `gulp`
