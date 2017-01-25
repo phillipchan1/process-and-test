@@ -87,6 +87,6 @@ function init(initialData) {
 			}
 		}
 	};
-};
+}
 
 module.exports = init;
