@@ -5,15 +5,15 @@ var mocha = require('gulp-mocha');
 // minify Js files
 gulp.task('compile', function() {
 	gulp.src('src/index.js')
-		.pipe(minify({
-			ext:{
-				min:'.js'
-				},
-				exclude: ['tasks'],
-				ignoreFiles: ['.combo.js', '-min.js'],
-				noSource: true
-				}))
-		.pipe(gulp.dest('./'))
+		// .pipe(minify({
+		// 	ext:{
+		// 		min:'.js'
+		// 		},
+		// 		exclude: ['tasks'],
+		// 		ignoreFiles: ['.combo.js', '-min.js'],
+		// 		noSource: true
+		// 		}))
+		.pipe(gulp.dest('./'));
 	}
 );
 

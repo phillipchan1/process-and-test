@@ -1,7 +1,7 @@
 {
   "name": "process-and-test",
   "version": "0.1.0",
-  "description": "A JS function that allows for a streamlined process that allows for multiple tests to be passed along its process.",
+  "description": "A JS module that allows for a pipeline process that allows for multiple tests to be passed along its process.",
   "main": "process-and-test.js",
   "dependencies": {},
   "devDependencies": {
