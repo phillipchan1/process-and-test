@@ -1,5 +1,5 @@
 # process-and-test.js
-A JS function that allows for a streamlined process that allows for multiple tests to be passed along its process.
+A JS module that allows for a pipeline process that allows for multiple tests to be passed along its process.
 
 ## Table of Contents
 1. [General](#general)
